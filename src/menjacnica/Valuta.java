@@ -24,8 +24,26 @@ public class Valuta {
 	public void setKurs(KursValute kurs) {
 		this.kurs = kurs;
 	}
-	
-	
-	
-
+	public String toString() {
+		return "Valuta u pitanju je " + naziv +" " + skraceniNaziv + ",a kurs za datu valutu je " + kurs;
+	}
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((kurs == null) ? 0 : kurs.hashCode());
+		result = prime * result + ((naziv == null) ? 0 : naziv.hashCode());
+		result = prime * result
+				+ ((skraceniNaziv == null) ? 0 : skraceniNaziv.hashCode());
+		return result;
+	}
+	public boolean equals(Object obj) {
+		if(obj == null)
+			return false;
+		if(obj instanceof Valuta) {
+			Valuta v = (Valuta) obj;
+			if(naziv.equals(v.getNaziv()) && skraceniNaziv.equals(v.getSkraceniNaziv()) && kurs.equals(v.getKurs()))
+				return true;
+		}
+		return false;
+	}
 }
