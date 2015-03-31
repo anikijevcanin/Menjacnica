@@ -10,18 +10,24 @@ public class Valuta {
 		return naziv;
 	}
 	public void setNaziv(String naziv) {
+		if(naziv == null || naziv.isEmpty())
+			throw new RuntimeException("Naziv ne sme biti prazan String ili null.");
 		this.naziv = naziv;
 	}
 	public String getSkraceniNaziv() {
 		return skraceniNaziv;
 	}
 	public void setSkraceniNaziv(String skraceniNaziv) {
+		if(skraceniNaziv == null || skraceniNaziv.isEmpty())
+			throw new RuntimeException("Skraceni naziv ne sme biti prazan String ili null.");
 		this.skraceniNaziv = skraceniNaziv;
 	}
 	public KursValute getKurs() {
 		return kurs;
 	}
 	public void setKurs(KursValute kurs) {
+		if(kurs == null || !(kurs instanceof KursValute)) 
+			throw new RuntimeException("Uneti objekat ne sme biti null ili objekat klase različite od KursValute");
 		this.kurs = kurs;
 	}
 	public String toString() {
